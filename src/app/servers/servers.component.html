@@ -11,11 +11,11 @@
 <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Hello World</button>
 
 
-<p *ngIf="serverCreated">Server was created with name {{ serverName }}</p>
+<p *ngIf="servercreated; else noServer">Server was created with name {{ serverName }}</p>
+<ng-template #noServer><p>No Server was created</p></ng-template>
 <!-- <p [innerText] ="allowNewServer"></p> -->
 <!-- <p>{{serverCreationstatus}}</p>
 
 
  -->
-<!-- <app-server></app-server>
-<app-server></app-server> -->
+<app-server *ngFor="let server of servers"></app-server>
